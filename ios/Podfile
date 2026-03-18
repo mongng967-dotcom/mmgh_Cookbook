@@ -24,11 +24,18 @@ target 'Cookbook_V1' do
   )
 
   post_install do |installer|
+    # 1. Existing React Native post install logic
     react_native_post_install(
       installer,
       config[:reactNativePath],
-      :mac_catalyst_enabled => false,
-      # :ccache_enabled => true
+      :mac_catalyst_enabled => false
     )
+
+    # 2. Add the Non-modular Includes fix here
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES'] = 'YES'
+      end
+    end
   end
-end
+end # This ends the 'target' block
