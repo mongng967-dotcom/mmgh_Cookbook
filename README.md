@@ -25,6 +25,7 @@ Stop manual typing. Navigate to **Inventory** and select **Scan Album**. Simply 
 ### 3. Managed Inventory
 Once saved, your ingredients are beautifully categorized. The app automatically compares these against recipe requirements to show you what is **"In Stock"** versus what is **"Missing"**.
 
+<img width="292.5" height="633" alt="Simulator Screenshot - iPhone 17 Pro - 2026-03-24 at 10 15 31" src="https://github.com/user-attachments/assets/bce89d19-836c-4fd6-8e0e-d73a9226420e" />
 <img width="292.5" height="633" alt="Simulator Screenshot - iPhone 16e - 2026-03-18 at 14 04 12" src="https://github.com/user-attachments/assets/08064bbf-26f9-4d55-ba3d-d1fbd0f54b40" />
 
 ---
