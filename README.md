@@ -8,6 +8,7 @@ Cookbook_V1 is a modern React Native application designed for food enthusiasts w
 ### 1. Authentication & Cloud Storage
 Upon opening the app, you are greeted by a clean, card-based dashboard. Signing in with Google ensures your personal cookbook and inventory are synced to the cloud and available on any device, so You **NEVER** lose your frige ingredients list and recipes!
 
+<img width="1206" height="2622" alt="Simulator Screenshot - iPhone 17 Pro - 2026-03-24 at 10 10 28" src="https://github.com/user-attachments/assets/517f706e-fdf3-465e-97eb-57757bf9ccf1" />
 <img width="292.5" height="633" alt="Simulator Screenshot - iPhone 16e - 2026-03-18 at 13 58 26" src="https://github.com/user-attachments/assets/f386c1bb-efbf-4d77-b309-eddf41f03d5d" />
 
 ---
