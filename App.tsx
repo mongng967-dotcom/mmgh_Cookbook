@@ -17,8 +17,9 @@ import LoginScreen from './src/screens/LoginScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import { InventoryScreen } from './src/screens/InventoryScreen';
 import { RecipesScreen } from './src/screens/RecipesScreen';
-import { PresetRecipesScreen } from './src/screens/PresetRecipesScreen'; // Add this
+import { PresetRecipesScreen } from './src/screens/PresetRecipesScreen';
 import { AlbumScanScreen } from './src/screens/AlbumScanScreen';
+import { ShoppingListScreen } from './src/screens/ShoppingListScreen'; // Added
 import { RootStackParamList } from './src/navigation/types';
 
 import { LogBox } from 'react-native';
@@ -115,6 +116,11 @@ export default function App() {
                 },
               }} 
             />
+            <Stack.Screen 
+              name="ShoppingList" 
+              component={ShoppingListScreen} 
+              options={{ title: "My Shopping List" }} 
+            />
             <Stack.Screen name="Inventory" component={InventoryScreen} />
             <Stack.Screen name="Recipes" component={RecipesScreen} />
             <Stack.Screen name="AlbumScan" component={AlbumScanScreen} options={{ headerShown: false }} />  
@@ -122,7 +128,7 @@ export default function App() {
               name="PresetRecipes" 
               component={PresetRecipesScreen} 
               options={{ title: "Starter Recipes" }}
-/>
+            />
           </>
         ) : (
           <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />

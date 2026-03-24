@@ -1,5 +1,6 @@
 /**
  * Inventory Screen – Clean UI with Tiled Pattern Backgrounds & Duplicate Logic
+ * Updated: Added "To List" functionality for Shopping List integration
  * @format
  */
 
@@ -130,6 +131,24 @@ export function InventoryScreen({ navigation }: Props) {
     else { fetchInventory(); setIsModalVisible(false); }
   };
 
+  // ---------------------- Shopping List Logic ----------------------
+  const handleAddToList = async () => {
+    if (!selectedItem) return;
+    const { error } = await supabase.from('shopping_list').insert([{
+      en: selectedItem.en,
+      zh: selectedItem.zh,
+      quantity: 1,
+      category: selectedItem.category || 'Other'
+    }]);
+
+    if (error) {
+      Alert.alert("Error", "Could not add to shopping list.");
+    } else {
+      Alert.alert("Success", `"${selectedItem.en}" added to shopping list!`);
+      setIsModalVisible(false);
+    }
+  };
+
   // ---------------------- Deletion Handlers ----------------------
   const confirmDelete = () => {
     if (!selectedItem) return;
@@ -224,7 +243,18 @@ export function InventoryScreen({ navigation }: Props) {
                 <TouchableOpacity key={c} onPress={() => setSelectedItem(p => p?{...p,category:c}:null)} style={[styles.miniChip, selectedItem?.category === c && styles.activeChip]}><Text style={{fontSize: 10, color: selectedItem?.category === c ? '#fff' : subtext}}>{c}</Text></TouchableOpacity>
               ))}</View>
               <View style={styles.modalFooter}>
-                {!isAddingNew && <TouchableOpacity onPress={confirmDelete} style={styles.deleteLink}><Text style={{color: '#FF3B30'}}>Delete Item</Text></TouchableOpacity>}
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  {!isAddingNew && (
+                    <TouchableOpacity onPress={confirmDelete} style={{ marginRight: 15 }}>
+                      <Text style={{ color: '#FF3B30', fontWeight: '600' }}>Delete</Text>
+                    </TouchableOpacity>
+                  )}
+                  {!isAddingNew && (
+                    <TouchableOpacity onPress={handleAddToList}>
+                      <Text style={{ color: '#007AFF', fontWeight: '700' }}>To List</Text>
+                    </TouchableOpacity>
+                  )}
+                </View>
                 <View style={{flexDirection: 'row', flex: 1, justifyContent: 'flex-end'}}>
                   <TouchableOpacity style={styles.footerBtn} onPress={() => setIsModalVisible(false)}><Text style={{color:textColor}}>Cancel</Text></TouchableOpacity>
                   <TouchableOpacity style={[styles.footerBtn, {backgroundColor: '#007AFF'}]} onPress={applyChanges}><Text style={{color: '#fff', fontWeight: '700'}}>Apply</Text></TouchableOpacity>
@@ -269,7 +299,6 @@ const styles = StyleSheet.create({
   modalRow: { flexDirection: 'row', flexWrap: 'wrap', marginTop: 10 },
   miniChip: { padding: 8, borderRadius: 8, borderWidth: 1, borderColor: '#ddd', marginRight: 8, marginBottom: 8 },
   activeChip: { backgroundColor: '#007AFF', borderColor: '#007AFF' },
-  modalFooter: { flexDirection: 'row', alignItems: 'center', marginTop: 35 },
-  deleteLink: { marginRight: 20 },
+  modalFooter: { flexDirection: 'row', alignItems: 'center', marginTop: 35, justifyContent: 'space-between' },
   footerBtn: { padding: 12, borderRadius: 12, marginLeft: 10, minWidth: 80, alignItems: 'center' }
 });

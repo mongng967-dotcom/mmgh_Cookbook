@@ -35,6 +35,37 @@ export default function HomeScreen() {
           </View>
           
           <View style={styles.menuGrid}>
+            {/* Shopping List Card (Moved to First Position) */}
+            <TouchableOpacity 
+              style={[styles.menuCard, { backgroundColor: '#F3E5F5' }]} 
+              onPress={() => navigation.navigate('ShoppingList' as any)}
+            >
+              <View style={styles.iconWrapper}>
+                <Image 
+                  source={require('../assets/Icons/inventory.png')} 
+                  style={[styles.cardIconImage, { tintColor: '#9C27B0' }]} 
+                />
+              </View>
+              <Text style={styles.cardTitle}>Shopping List</Text>
+              <Text style={styles.cardDesc}>Items to buy for your kitchen</Text>
+            </TouchableOpacity>
+
+            {/* My Cookbook Card */}
+            <TouchableOpacity 
+              style={[styles.menuCard, { backgroundColor: '#FFF3E0' }]} 
+              onPress={() => navigation.navigate('Recipes')}
+            >
+              <View style={styles.iconWrapper}>
+                <Image 
+                  source={require('../assets/Icons/cookbook.png')} 
+                  style={styles.cardIconImage} 
+                />
+              </View>
+              <Text style={styles.cardTitle}>My Cookbook</Text>
+              <Text style={styles.cardDesc}>View recipes & AI extractions</Text>
+            </TouchableOpacity>
+
+            {/* Inventory Card */}
             <TouchableOpacity 
               style={[styles.menuCard, { backgroundColor: '#E3F2FD' }]} 
               onPress={() => navigation.navigate('Inventory')}
@@ -49,20 +80,7 @@ export default function HomeScreen() {
               <Text style={styles.cardDesc}>Manage ingredients & fridge scans</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-              style={[styles.menuCard, { backgroundColor: '#FFF3E0' }]} 
-              onPress={() => navigation.navigate('Recipes')}
-            >
-              <View style={styles.iconWrapper}>
-                <Image 
-                  source={require('../assets/Icons/cookbook.png')} 
-                  style={styles.cardIconImage} 
-                />
-              </View>
-              <Text style={styles.cardTitle}>My Cookbook</Text>
-              <Text style={styles.cardDesc}>View recipes & AI extractions</Text>
-            </TouchableOpacity>
-            {/* New Preset Recipes Card */}
+            {/* Starter Recipes Card */}
             <TouchableOpacity 
               style={[styles.menuCard, { backgroundColor: '#F1F8E9' }]} 
               onPress={() => navigation.navigate('PresetRecipes')}
