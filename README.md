@@ -43,6 +43,14 @@ Access the **Starter Recipes** to browse over preset recipes. Each preset can be
 <img width="292.5" height="633" alt="Simulator Screenshot - iPhone 16e - 2026-03-18 at 14 00 56" src="https://github.com/user-attachments/assets/39814cd3-4051-43f9-95eb-19dca770da8b" />
 <img width="292.5" height="633" alt="Simulator Screenshot - iPhone 16e - 2026-03-18 at 14 01 00" src="https://github.com/user-attachments/assets/03fab2c6-3a94-47d1-95cc-c88da47ca64f" />
 
+---
+
+### 7. Smart Shopping List
+Never forget an ingredient again. When browsing your cookbook or starter recipes, tap the shopping cart icon next to any missing ingredient to instantly add it to your list. The Shopping List groups items by category with beautiful, blended backgrounds and allows you to easily check them off with a single tap once you have picked them up at the store.
+
+<img width="292.5" height="633" alt="Simulator Screenshot - iPhone 17 Pro - 2026-03-24 at 01 16 42" src="https://github.com/user-attachments/assets/9660606b-e613-4385-94c0-33f3868bb818" />
+<img width="292.5" height="633" alt="Simulator Screenshot - iPhone 17 Pro - 2026-03-24 at 01 16 25" src="https://github.com/user-attachments/assets/ec1cf386-2c2f-4c00-8c77-c012bd72208f" />
+
 
 ---
 
@@ -50,7 +58,7 @@ Access the **Starter Recipes** to browse over preset recipes. Each preset can be
 
 To run this project locally, you must provide your own API keys. 
 
-1. **Clone the repo**: `git clone https://github.com/stoneplus2011/mmgh_cookbook.git`
+1. **Clone the repo**: `git clone https://github.com/mongng967-dotcom/mmgh_Cookbook.git`
 2. **Install dependencies**: `npm install`
 3. **Configure Environment**: Create a `.env` file in the root directory and add the following:
 
